@@ -55,5 +55,25 @@ router.get('/location_driver',async(req,resp)=>{
     });
 });
 
+router.post('/location_driver',async(req,resp)=>{
+    const {BusNumber} = req.body;
+    let location_found = await location.findOne({BusNumber:BusNumber});
+    if(!location_found){
+        return resp.status(400).json({
+            success:false,
+            msg:'Location not found'
+        });
+    }
+
+    return resp.status(200).json({
+        success:true,
+        LocationLat:location_found.LocationLat,
+        LocationLong:location_found.LocationLong
+        
+    });
+});
+
+
+
 
 module.exports = router;
