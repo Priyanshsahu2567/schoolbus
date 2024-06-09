@@ -22,6 +22,6 @@ app.use('/api/SchoolBus/user_driver',require('./routes/Driver_Routes'));
 app.use('/api/SchoolBus/user_student',require('./routes/Student_Routes'));
 // http://localhost:5000/api/SchoolBus/updatelocation
 app.use('/api/SchoolBus/updatelocation',require('./routes/Location_Routes'));
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
-app.listen(PORT,console.log('running'));
+app.listen(port,console.log('running'));
